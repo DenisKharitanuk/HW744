@@ -9,9 +9,9 @@ public class Order {
     private String fourthItemInMenu = "Вертикальные пылесосы";
     private String color = "rgba(245, 81, 35, 1)";
     private String basketCounter = "1";
-    private String price = "3 311";
-    private String totalPrice = "3 311 ₽";
-    private String productCardInfo = "Вертикальный проводной пылесос, SAFERET";
+    private String price = "15 835 ₽";
+    private String totalPrice = "15 835 ₽";
+    private String productCardInfo = "Пылесос вертикальный беспроводной OKAMI V70 Absolute, OKAMI";
 
     public Order() {
         this.firstItemInMenu = firstItemInMenu;

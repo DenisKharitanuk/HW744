@@ -17,8 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CatalogPage {
 
     //locators block
-    private SelenideElement firstProductInCatalog = $(By.xpath("//*[@id=\"c165760752\"]/div/div[1]"));
-    private SelenideElement mainContent = $(".main-page__content");
     private SelenideElement searchingResultsTitle = $(".searching-results__title");
     private SelenideElement firstFilter = $(By.xpath("//div/button[@class='dropdown-filter__btn dropdown-filter__btn--burger']"));
     private SelenideElement secondFilter = $(By.xpath("//button[@class='dropdown-filter__btn dropdown-filter__btn--sorter']"));
@@ -26,31 +24,15 @@ public class CatalogPage {
     private SelenideElement filterDropdownMenuButton = $((".dropdown-filter.j-show-all-filtres"));
     private SelenideElement allFiltersCounter = $(By.xpath("//div[@class='dropdown-filter j-show-all-filtres']/span"));
     private SelenideElement productCounter = $(By.xpath("//span[@data-link='html{spaceFormatted:pagerModel.totalItems}']"));
-    private SelenideElement productCardList = $(".product-card-list");
+
     private ElementsCollection productCard = $$(".product-card__wrapper");
     private ElementsCollection filtersChoice = $$(".your-choice__btn");
     private ElementsCollection breadcrumbsLink = $$(By.xpath("//span[@itemprop='name']"));
     private ElementsCollection addToBasketButton = $$(".product-card__add-basket.j-add-to-basket.btn-main");
-    private ElementsCollection productCardBrand = $$(".product-card__brand");
 
 
     //getters block
 
-    public SelenideElement getMainContent() {
-        return mainContent;
-    }
-
-    public SelenideElement getProductCardList() {
-        return productCardList;
-    }
-
-    public ElementsCollection getProductCardBrand() {
-        return productCardBrand;
-    }
-
-    private SelenideElement getFirstProductInCatalog() {
-        return firstProductInCatalog;
-    }
 
     private ElementsCollection getAddToBasketButton() {
         return addToBasketButton;
@@ -86,10 +68,6 @@ public class CatalogPage {
 
     private SelenideElement getProductCounter() {
         return productCounter;
-    }
-
-    private ElementsCollection getProductCard() {
-        return productCard;
     }
 
     private ElementsCollection getFiltersChoice() {
@@ -128,13 +106,9 @@ public class CatalogPage {
         return this;
     }
 
-    public CatalogPage firstProductIsVerification(String productName) {
-        assertEquals(productName, getFirstProductInCatalog().getText());
-        return this;
-    }
 
     public CatalogPage productCardLabelVerification(int index, String productLabel) {
-        getProductCardBrande().get(0).shouldBe(visible).shouldHave(text(productLabel));
+        getProductCardBrande().get(index).shouldBe(visible).shouldHave(text(productLabel));
         return this;
     }
 

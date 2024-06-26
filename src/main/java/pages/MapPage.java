@@ -5,7 +5,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.devtools.v125.indexeddb.model.Key;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,13 +23,10 @@ public class MapPage {
     private SelenideElement selectButton = $(".details-self__btn");
     private SelenideElement pickUpPointerName = $(".details-self__name-text");
     private ElementsCollection address = $$(By.xpath("//span[@class='address-item__name-text']/span"));
-    private SelenideElement map = $("..ymaps-2-1-79-events-pane.ymaps-2-1-79-user-selection-none");
+    private ElementsCollection searchButton = $$(".ymaps-2-1-79-searchbox-button-text");
 
     //getters block
 
-    public SelenideElement getMap() {
-        return map;
-    }
 
     private SelenideElement getPlaceHolder() {
         return placeHolder;
@@ -48,12 +47,12 @@ public class MapPage {
 
     // actions block
     public MapPage inputAddress(String address) {
-        getPlaceHolder().shouldBe(clickable).shouldBe(visible).sendKeys(address, Keys.ENTER);
+        getPlaceHolder().shouldBe(clickable, Duration.ofSeconds(15)).shouldBe(visible).sendKeys(address, Keys.ENTER);
         return this;
     }
 
     public MapPage selectOnAddressByIndex(int index) {
-        getAddress().filter(visible).get(index).click();
+        getAddress().filter(text("Санкт-Петербург")).get(index).shouldBe(visible).click();
         return this;
     }
 

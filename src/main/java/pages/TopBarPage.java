@@ -64,11 +64,6 @@ public class TopBarPage {
         return new CatalogPage();
     }
 
-    public CatalogPage clickOnSearchButton() {
-        getSearchButton().click();
-        return new CatalogPage();
-    }
-
     public TopBarPage clearSearchLine() {
         getClearButton().click();
         return this;

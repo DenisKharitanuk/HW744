@@ -11,10 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BasketPage {
     //Locators block
-    private SelenideElement listItem = $(".list-item__good");
     private SelenideElement product = $(".good-info__title.j-product-popup");
     private SelenideElement productPriceCard = $(".list-item__price-new");
-    private SelenideElement productPriceWithWBWallet = $(".list-item__price-wallet");
     private SelenideElement totalPrice = $(By.xpath("//p[@class='b-top__total line' ]/span/span"));
     private SelenideElement toOrderButton = $(".b-btn-do-order");
 
@@ -23,14 +21,6 @@ public class BasketPage {
 
     private SelenideElement getProduct() {
         return product;
-    }
-
-    public SelenideElement getListItem() {
-        return listItem;
-    }
-
-    private SelenideElement getProductPriceWithWBWallet() {
-        return productPriceWithWBWallet;
     }
 
     private SelenideElement getProductPriceCard() {

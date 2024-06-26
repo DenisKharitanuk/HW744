@@ -43,7 +43,7 @@ public class BurgerMenuBarPage {
     }
 
     public BurgerMenuBarPage clickOnDropMenuByName(String menuName) {
-        getDropMenu().find(text(menuName)).click();
+        getDropMenu().find(text(menuName)).shouldBe(clickable).click();
         return this;
     }
 
