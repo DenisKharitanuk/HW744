@@ -28,7 +28,6 @@ public class BasketPageTest extends BaseTest {
                 .clickOnDropMenuByName(newOrder.getSecondItemInMenu())
                 .clickOnDropMenuByName(newOrder.getThirdItemInMenu())
                 .lastClickOnDropdownMenuAndGoToCatalogByName(newOrder.getFourthItemInMenu())
-                .pageIsOpened()
                 .catalogTitleVerification(newOrder.getFourthItemInMenu())
                 .breadcrumbsLinksVerification("Главная", newOrder.getFirstItemInMenu(),
                         newOrder.getSecondItemInMenu(), newOrder.getThirdItemInMenu(), newOrder.getFourthItemInMenu())

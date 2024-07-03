@@ -17,6 +17,9 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-api:5.11.0-M2'
     testImplementation 'io.qameta.allure:allure-junit5:2.27.0'
     implementation 'io.qameta.allure:allure-selenide:2.27.0'
+    implementation 'io.cucumber:cucumber-core:7.18.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.18.0'
+    implementation 'io.cucumber:cucumber-java:7.18.0'
 }
 compileJava.options.encoding = 'UTF-8'
 javadoc.options.encoding = 'UTF-8'

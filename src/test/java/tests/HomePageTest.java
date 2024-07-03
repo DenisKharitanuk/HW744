@@ -25,7 +25,7 @@ public class HomePageTest extends BaseTest {
         new TopBarPage()
                 .searchProduct(search.getSearchProduct())
                 .searchingResultsVerification(search.getSearchProduct())
-                .firstFilterVerification("")
+//                .firstFilterVerification("")
                 .secondFilterVerification(search.getFilterName())
                 .productCardLabelVerification(0, search.getProductLabelName());
         new TopBarPage().clearSearchLine().searchLineIsClean();

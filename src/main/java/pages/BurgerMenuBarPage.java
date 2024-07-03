@@ -3,6 +3,7 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -36,7 +37,8 @@ public class BurgerMenuBarPage {
         return lastDropMenu;
     }
 
-    //action block
+    //action block\
+    @When("выбрать {string}")
     public BurgerMenuBarPage clickOnMainMenuByName(String menuName) {
         getMainMenu().find(text(menuName)).shouldBe(visible).click();
         return this;
@@ -47,6 +49,7 @@ public class BurgerMenuBarPage {
         return this;
     }
 
+    @When("выбрать последним пунктом {string}")
     public CatalogPage lastClickOnDropdownMenuAndGoToCatalogByName(String menuName) {
         getLastDropMenu().find(text(menuName)).shouldBe(visible).click();
         return new CatalogPage();

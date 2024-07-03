@@ -2,6 +2,8 @@ package pages;
 
 
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.en.Then;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
@@ -37,21 +39,25 @@ public class BasketPage {
 
     //verifications block
 
+    @Then("наименование товара {string}")
     public BasketPage productInfoVerification(String infoText) {
         assertEquals(infoText, getProduct().getText());
         return this;
     }
 
+    @Then("цена товара {string}")
     public BasketPage productPricesVerification(String price) {
         getProductPriceCard().shouldBe(visible).shouldHave(text(price));
         return this;
     }
 
+    @Then("общая стоимость товаров находящихся в корзине {string}")
     public BasketPage totalPriceVerification(String totalPrice) {
         getTotalPrice().shouldBe(visible).shouldHave(text(totalPrice));
         return this;
     }
 
+    @Then("кнопка “Заказать” активна для нажатия")
     public BasketPage toOrderButtonIsClicable() {
         getToOrderButton();
         return this;

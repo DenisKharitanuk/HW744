@@ -3,6 +3,8 @@ package pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -80,43 +82,51 @@ public class CatalogPage {
 
     //actions block
 
+    @When("нажать на кнопку “В корзину”")
     public TopBarPage clickOnAddToBasketButton(int index) {
-        getAddToBasketButton().get(index).shouldBe(visible).shouldBe(clickable).click();
+        getAddToBasketButton().get(0).shouldBe(visible).shouldBe(clickable).click();
         return new TopBarPage();
     }
 
+    @When("нажать на спсисок фильтров")
     public FiltersPage clickOnFilterButton() {
         getFilterDropdownMenuButton().click();
         return new FiltersPage();
     }
 
     //verifications block
+    @Then("присутствует текст {string}")
     public CatalogPage searchingResultsVerification(String expectedText) {
         getSearchingResultsTitle().shouldBe(visible).shouldHave(text(expectedText));
         return this;
     }
 
+    @Then("первый фильтр {string}")
     public CatalogPage firstFilterVerification(String filterName) {
         getFirstFilter().shouldBe(visible).shouldHave(exactText(filterName));
         return this;
     }
 
+    @Then("применен фильтр {string}")
     public CatalogPage secondFilterVerification(String filterName) {
         getSecondFilter().shouldBe(visible).shouldHave(text(filterName));
         return this;
     }
 
 
+    @Then("у устройства номер {int}, из списка, бренд {string}")
     public CatalogPage productCardLabelVerification(int index, String productLabel) {
-        getProductCardBrande().get(index).shouldBe(visible).shouldHave(text(productLabel));
+        getProductCardBrande().get(index - 1).shouldBe(visible).shouldHave(text(productLabel));
         return this;
     }
 
+    @Then("произошел переход на страницу с бытовой техникой")
     public CatalogPage catalogTitleVerification(String catalogTitleName) {
         getCatalogTitle().shouldBe(visible).shouldHave(text(catalogTitleName));
         return this;
     }
 
+    @Then("путь фильтра: {string} - {string} - {string} - {string} - {string}")
     public CatalogPage breadcrumbsLinksVerification(String... linksArray) {
         for (int i = 0; i < linksArray.length; i++) {
             assertEquals(linksArray[i], getBreadcrumbsLink().get(i).getText());
@@ -124,6 +134,7 @@ public class CatalogPage {
         return this;
     }
 
+    @Then("фильтры: {string}, {string},стоимость {string} {string} диагональ экрана {string} и кнопка {string} активированы")
     public CatalogPage filtersChoiceListVerification(String... filterArray) {
         for (int i = 0; i < filterArray.length; i++) {
             assertEquals(filterArray[i], getFiltersChoice().get(i).getText());
@@ -131,16 +142,20 @@ public class CatalogPage {
         return this;
     }
 
+    @Then("фильтр активировался колличество фильтров {string}")
     public CatalogPage allFiltersCounterVerification(String counterValue) {
         getAllFiltersCounter().shouldBe(visible).shouldHave(text(counterValue));
         return new CatalogPage();
     }
 
+    @Then("кол-во товара на странице {string}")
     public CatalogPage productCounterVerification(String size) {
         getProductCounter().shouldBe(text(size));
         return this;
     }
 
+
+    @Then("открылась страница с ноутбуками")
     public CatalogPage pageIsOpened() {
         getCatalogTitle().shouldBe(visible);
         return this;

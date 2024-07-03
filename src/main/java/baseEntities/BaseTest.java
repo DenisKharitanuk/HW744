@@ -2,6 +2,7 @@ package baseEntities;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.cucumber.java.en.Given;
 import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ public class BaseTest {
 
 
     @BeforeEach
+    @Given("браузер и домашняя страница открыта")
     public void setup() {
         Allure.addAttachment("Дата запуска", getDate());
         Allure.addAttachment("Браузер", getBrowser());
