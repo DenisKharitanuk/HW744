@@ -142,7 +142,7 @@ public class CatalogPage {
         return this;
     }
 
-    @Then("фильтр активировался колличество фильтров {string}")
+    @Then("фильтр активировался количество фильтров {string}")
     public CatalogPage allFiltersCounterVerification(String counterValue) {
         getAllFiltersCounter().shouldBe(visible).shouldHave(text(counterValue));
         return new CatalogPage();
