@@ -16,7 +16,7 @@ public class BaseTest {
 
 
     @BeforeEach
-    @Given("браузер и домашняя страница открыта")
+    @Given("пользователь на главной странице магазина")
     public void setup() {
         Allure.addAttachment("Дата запуска", getDate());
         Allure.addAttachment("Браузер", getBrowser());
